@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "disableplayerreporting",
+  "version": "${version}",
+  "name": "DisablePlayerReporting",
+  "description": "Disable the new Player Reporting feature, once and for all!",
+  "authors": [
+    "mdcfe"
+  ],
+  "contact": {
+    "repo": "https://github.com/mdcfe/DisablePlayerReporting"
+  },
+  "license": "MIT",
+  "icon": "assets/disableplayerreporting/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "main": [
+      "dev.mdcfe.disableplayerreporting.DisablePlayerReporting"
+    ]
+  },
+  "mixins": [
+    "disableplayerreporting.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.9",
+    "minecraft": "~1.19.1"
+  }
+}

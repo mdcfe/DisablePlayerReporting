@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.mdcfe.disableplayerreporting.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+  ],
+  "client": [
+    "AbuseReportSenderServicesMixin",
+    "PauseScreenMixin",
+    "PlayerEntryMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
