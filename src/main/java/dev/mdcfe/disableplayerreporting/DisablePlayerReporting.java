@@ -2,7 +2,6 @@ package dev.mdcfe.disableplayerreporting;
 
 import com.mojang.logging.LogUtils;
 import net.fabricmc.api.ModInitializer;
-import net.minecraft.client.gui.screens.reporting.ChatReportScreen;
 import org.slf4j.Logger;
 
 import java.util.List;
@@ -22,7 +21,10 @@ public class DisablePlayerReporting implements ModInitializer {
             "Why are you reading this?",
             "Scientifically proven to be 1000% safer than NoChatReports",
             "Don't forget to save your world #saveminecraft",
-            "kennyt26Puffy"
+            "kennyt26Puffy",
+            "Now available on Modrinth!",
+            "Not available on Hangar!",
+            "Not available on Hannah... Who's Hannah?"
     );
 
     @Override

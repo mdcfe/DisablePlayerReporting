@@ -1,23 +1,39 @@
 package dev.mdcfe.disableplayerreporting.mixin;
 
+import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.PauseScreen;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.MutableComponent;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
+
+import java.util.function.Supplier;
 
 @Mixin(PauseScreen.class)
 public class PauseScreenMixin {
 
+    @Shadow
+    @Final
+    @SuppressWarnings("java:S3008")
+    private static Component PLAYER_REPORTING;
+
+    @Shadow
+    private Button openScreenButton(Component component, Supplier<Screen> supplier) {
+        // shadow stub
+        return null;
+    }
+
     @Redirect(
         method = "createPauseMenu",
-        at = @At(value = "INVOKE", target = "Lnet/minecraft/network/chat/Component;translatable(Ljava/lang/String;)Lnet/minecraft/network/chat/MutableComponent;")
+        at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/screens/PauseScreen;openScreenButton(Lnet/minecraft/network/chat/Component;Ljava/util/function/Supplier;)Lnet/minecraft/client/gui/components/Button;")
     )
-    private MutableComponent renamePlayerReportingButton(String key) {
-        if (key.equals("menu.playerReporting")) {
-            return Component.translatable("gui.socialInteractions.title");
+    private Button renamePlayerReportingButton(PauseScreen instance, Component component, Supplier<Screen> supplier) {
+        if (component == PLAYER_REPORTING) {
+            component = Component.translatable("gui.socialInteractions.title");
         }
-        return Component.translatable(key);
+        return openScreenButton(component, supplier);
     }
 }
