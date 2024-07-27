@@ -35,7 +35,7 @@ conversations.
 
 ### Client
 
-Simply install Minecraft 1.19.3 and Fabric Loader 0.14.12 or above, then drop this mod in your `mods/` directory. Next
+Simply install Minecraft 1.21 and Fabric Loader 0.15.11 or above, then drop this mod in your `mods/` directory. Next
 time you start your game and join a server, player reporting will be disabled!  
 
 ### Server
